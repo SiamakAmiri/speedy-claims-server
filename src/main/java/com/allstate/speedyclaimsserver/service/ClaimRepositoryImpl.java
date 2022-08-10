@@ -2,6 +2,7 @@ package com.allstate.speedyclaimsserver.service;
 
 import com.allstate.speedyclaimsserver.data.ClaimRepository;
 import com.allstate.speedyclaimsserver.domain.Claim;
+import com.allstate.speedyclaimsserver.dtos.ClaimDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,8 @@ public class ClaimRepositoryImpl implements ClaimService{
     }
 
     @Override
-    public Claim addClaim(Claim newClaim) {
+    public Claim addClaim(ClaimDTO newClaim) {
 
-        return claimRepository.save(newClaim);
+        return claimRepository.save(newClaim.toClaim());
     }
 }

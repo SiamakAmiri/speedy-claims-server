@@ -1,6 +1,7 @@
 package com.allstate.speedyclaimsserver.controller;
 
 import com.allstate.speedyclaimsserver.domain.Claim;
+import com.allstate.speedyclaimsserver.dtos.ClaimDTO;
 import com.allstate.speedyclaimsserver.service.ClaimService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,16 +19,16 @@ public class ClaimController {
 
 
     @GetMapping()
-    public List<Claim> getAllClaim() {
+    public List<ClaimDTO> getAllClaim() {
         return claimService.getAllClaim().stream()
-                .map(c -> new Claim())
+                .map(c -> new ClaimDTO())
                 .collect(Collectors.toList());
     }
 
 
     @PostMapping
-    public Claim newClaim(@RequestBody Claim newClaim) {
-        return claimService.addClaim(newClaim);
+    public Claim newClaim(@RequestBody ClaimDTO claimDTO) {
+        return claimService.addClaim(claimDTO);
     }
 
 

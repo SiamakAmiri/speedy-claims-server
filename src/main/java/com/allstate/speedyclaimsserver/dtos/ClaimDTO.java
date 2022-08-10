@@ -1,17 +1,17 @@
-package com.allstate.speedyclaimsserver.domain;
+package com.allstate.speedyclaimsserver.dtos;
 
-import javax.persistence.*;
+import com.allstate.speedyclaimsserver.domain.Claim;
+import com.allstate.speedyclaimsserver.domain.ClaimNote;
+import com.allstate.speedyclaimsserver.domain.ClaimTask;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name ="claim")
-public class Claim {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer claimId;
+public class ClaimDTO {
 
     private Integer policyNumber;
     private String firstName;
@@ -29,18 +29,11 @@ public class Claim {
     private String incidentDescription;
     private String claimStatus;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    List<ClaimNote> claimNoteList;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    List<ClaimTask> claimTaskList;
-
-
-    public Claim() {
+    public ClaimDTO() {
     }
 
-    public Claim(Integer claimId, Integer policyNumber, String firstName, String surname, String insuranceType, String propertyAddress, String make, String model, Integer year, String animalType, String animalBreed, LocalDate incidentDate, double incidentAmount, String claimReason, String incidentDescription, String claimStatus, List<ClaimNote> claimNoteList, List<ClaimTask> claimTaskList) {
-        this.claimId = claimId;
+    public ClaimDTO(Integer policyNumber, String firstName, String surname, String insuranceType, String propertyAddress, String make, String model, Integer year, String animalType, String animalBreed, LocalDate incidentDate, double incidentAmount, String claimReason, String incidentDescription, String claimStatus) {
         this.policyNumber = policyNumber;
         this.firstName = firstName;
         this.surname = surname;
@@ -56,13 +49,10 @@ public class Claim {
         this.claimReason = claimReason;
         this.incidentDescription = incidentDescription;
         this.claimStatus = claimStatus;
-        this.claimNoteList = claimNoteList;
-        this.claimTaskList = claimTaskList;
     }
 
+    public Claim toClaim(){
 
-
-
-
-
+        return new Claim (null, policyNumber, firstName, surname, insuranceType, propertyAddress, make, model, year, animalType, animalBreed, LocalDate.now(), incidentAmount, claimReason, incidentDescription, claimStatus, new ArrayList<>(), new ArrayList<>());
+    }
 }
