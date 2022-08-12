@@ -1,6 +1,9 @@
 package com.allstate.speedyclaimsserver.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -9,18 +12,22 @@ public class ClaimNote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer claimNoteId;
+    @Column(name="claim_note_id")
+    private Integer claimNoteId;
 
-    String noteText;
-    Date noteCreatedDateTime;
+    @Column(name="note_text")
+    private String noteText;
+
+    @Column(name="note_created_date_time")
+    private LocalDate noteCreatedDateTime;
 
     @ManyToOne
-    Claim createdClaim;
+    private Claim createdClaim;
 
     public ClaimNote() {
     }
 
-    public ClaimNote(Integer claimNoteId, String noteText, Date noteCreatedDateTime, Claim createdClaim) {
+    public ClaimNote(Integer claimNoteId, String noteText, LocalDate noteCreatedDateTime, Claim createdClaim) {
         this.claimNoteId = claimNoteId;
         this.noteText = noteText;
         this.noteCreatedDateTime = noteCreatedDateTime;
@@ -44,14 +51,15 @@ public class ClaimNote {
         this.noteText = noteText;
     }
 
-    public Date getNoteCreatedDateTime() {
+    public LocalDate getNoteCreatedDateTime() {
         return noteCreatedDateTime;
     }
 
-    public void setNoteCreatedDateTime(Date noteCreatedDateTime) {
+    public void setNoteCreatedDateTime(LocalDate noteCreatedDateTime) {
         this.noteCreatedDateTime = noteCreatedDateTime;
     }
 
+    @JsonIgnore
     public Claim getCreatedClaim() {
         return createdClaim;
     }

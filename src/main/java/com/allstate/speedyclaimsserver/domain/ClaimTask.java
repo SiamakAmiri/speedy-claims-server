@@ -1,5 +1,7 @@
 package com.allstate.speedyclaimsserver.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,9 +10,13 @@ public class ClaimTask {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="claim_task_id")
     Integer claimTaskId;
 
+    @Column(name="task_text")
     String taskText;
+
+    @Column(name="task_status")
     String taskStatus;
 
     @ManyToOne
@@ -50,6 +56,7 @@ public class ClaimTask {
         this.taskStatus = taskStatus;
     }
 
+    @JsonIgnore
     public Claim getCreatedClaim() {
         return createdClaim;
     }
