@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -29,6 +30,33 @@ public class ClaimController {
     @PostMapping
     public Claim newClaim(@RequestBody ClaimDTO claimDTO) {
         return claimService.addClaim(claimDTO);
+    }
+
+
+    @GetMapping()
+    public Claim getTheClaim(@RequestParam(value="claimId", required=false) Integer claimId,
+                        @RequestParam(value="policyNumber", required=false) Integer policyNumber,
+                        @RequestParam(value="surname", required=false) String surname) {
+        if (claimId != null) {
+            return claimService.getClaimById(claimId);
+        }
+        else if (policyNumber != null) {
+            return claimService.getClaimByPolicyNumber(policyNumber);
+        }
+        else if (surname != null) {
+            return claimService.getClaimBySurname(surname);
+        }
+
+        return claimService.getClaimById(claimId);
+
+    }
+
+
+    @PutMapping("/{claimId}")
+    public Claim  updateCLaim(@PathVariable("claimId") Integer claimId,
+                                                   @RequestBody Map<String, String> data) {
+
+        return claimService.updateClaim(claimId, data);
     }
 
 

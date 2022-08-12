@@ -4,8 +4,10 @@ import com.allstate.speedyclaimsserver.domain.Claim;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ClaimRepository extends JpaRepository<Claim, Integer> {
 
-    public Claim findByName(String surname);
+    public Optional<Claim> findByName(String surname);
 }
