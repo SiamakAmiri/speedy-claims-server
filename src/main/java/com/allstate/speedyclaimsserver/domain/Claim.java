@@ -45,7 +45,7 @@ public class Claim {
     @Column(name="incident_amount")
     private Double incidentAmount;
 
-    @Column(name="claim-reason")
+    @Column(name="claim_reason")
     private String claimReason;
 
     @Column(name="incident_description")
