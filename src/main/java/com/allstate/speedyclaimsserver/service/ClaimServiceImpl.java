@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class ClaimRepositoryImpl implements ClaimService{
+public class ClaimServiceImpl implements ClaimService{
 
 
     @Autowired
