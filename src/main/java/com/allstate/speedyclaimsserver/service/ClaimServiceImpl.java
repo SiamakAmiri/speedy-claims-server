@@ -26,7 +26,13 @@ public class ClaimServiceImpl implements ClaimService{
     @Override
     public List<Claim> getAllClaim(){
 
+        System.out.println("Inside ClaimServiceImpl");
         return claimRepository.findAll();
+    }
+
+    @Override
+    public int countClaims() {
+        return claimRepository.findAll().size();
     }
 
     @Override
@@ -40,6 +46,8 @@ public class ClaimServiceImpl implements ClaimService{
 
     @Override
     public Claim getClaimById(Integer claimId) {
+
+        System.out.println("Inside getClaimById");
         Optional<Claim> optionalClaim =  claimRepository.findById(claimId);
 
         if (optionalClaim.isPresent()) {
@@ -64,7 +72,7 @@ public class ClaimServiceImpl implements ClaimService{
 
     @Override
     public Claim getClaimBySurname(String surname) {
-        Optional<Claim> optionalClaim = claimRepository.findByName(surname);
+        Optional<Claim> optionalClaim = claimRepository.findBySurname(surname);
 
         if (optionalClaim.isPresent()) {
             return optionalClaim.get();

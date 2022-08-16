@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name ="claim")
@@ -227,5 +228,43 @@ public class Claim {
 
     public void setClaimTaskList(List<ClaimTask> claimTaskList) {
         this.claimTaskList = claimTaskList;
+    }
+
+    @Override
+    public String toString() {
+        return "Claim{" +
+                "claimId=" + claimId +
+                ", policyNumber=" + policyNumber +
+                ", firstName='" + firstName + '\'' +
+                ", surname='" + surname + '\'' +
+                ", insuranceType='" + insuranceType + '\'' +
+                ", propertyAddress='" + propertyAddress + '\'' +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", animalType='" + animalType + '\'' +
+                ", animalBreed='" + animalBreed + '\'' +
+                ", incidentDate=" + incidentDate +
+                ", incidentAmount=" + incidentAmount +
+                ", claimReason='" + claimReason + '\'' +
+                ", incidentDescription='" + incidentDescription + '\'' +
+                ", claimStatus='" + claimStatus + '\'' +
+                ", claimNoteList=" + claimNoteList +
+                ", claimTaskList=" + claimTaskList +
+                '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Claim claim = (Claim) o;
+        return Objects.equals(claimId, claim.claimId) && Objects.equals(policyNumber, claim.policyNumber) && Objects.equals(firstName, claim.firstName) && Objects.equals(surname, claim.surname) && Objects.equals(insuranceType, claim.insuranceType) && Objects.equals(propertyAddress, claim.propertyAddress) && Objects.equals(make, claim.make) && Objects.equals(model, claim.model) && Objects.equals(year, claim.year) && Objects.equals(animalType, claim.animalType) && Objects.equals(animalBreed, claim.animalBreed) && Objects.equals(incidentDate, claim.incidentDate) && Objects.equals(incidentAmount, claim.incidentAmount) && Objects.equals(claimReason, claim.claimReason) && Objects.equals(incidentDescription, claim.incidentDescription) && Objects.equals(claimStatus, claim.claimStatus) && Objects.equals(claimNoteList, claim.claimNoteList) && Objects.equals(claimTaskList, claim.claimTaskList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(claimId, policyNumber, firstName, surname, insuranceType, propertyAddress, make, model, year, animalType, animalBreed, incidentDate, incidentAmount, claimReason, incidentDescription, claimStatus, claimNoteList, claimTaskList);
     }
 }

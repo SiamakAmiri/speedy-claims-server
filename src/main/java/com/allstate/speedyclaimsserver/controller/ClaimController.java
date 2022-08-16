@@ -4,8 +4,10 @@ import com.allstate.speedyclaimsserver.domain.Claim;
 import com.allstate.speedyclaimsserver.dtos.ClaimDTO;
 import com.allstate.speedyclaimsserver.service.ClaimService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,9 +23,27 @@ public class ClaimController {
 
     @GetMapping()
     public List<ClaimDTO> getAllClaim() {
+        System.out.println("Inside ClaimController.getAllClaim");
         return claimService.getAllClaim().stream()
-                .map(c -> new ClaimDTO())
+                .map(c -> new ClaimDTO(c))
                 .collect(Collectors.toList());
+    }
+
+
+
+    @GetMapping("/volume")
+    public Map<String, String> getNumberOfClaims() {
+        System.out.println("Inside ClaimController.getNumberOfClaims");
+        Integer volume = claimService.countClaims();
+        Map<String, String> results = new HashMap<>();
+        results.put("volume", volume.toString());
+        return results;
+    }
+
+
+    @GetMapping(value ="/{id}", produces={MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    public Claim getById(@PathVariable("id") Integer id) {
+        return claimService.getClaimById(id);
     }
 
 
@@ -33,7 +53,7 @@ public class ClaimController {
     }
 
 
-    @GetMapping()
+   /* @GetMapping()
     public Claim getTheClaim(@RequestParam(value="claimId", required=false) Integer claimId,
                         @RequestParam(value="policyNumber", required=false) Integer policyNumber,
                         @RequestParam(value="surname", required=false) String surname) {
@@ -50,7 +70,7 @@ public class ClaimController {
         return claimService.getClaimById(claimId);
 
     }
-
+*/
 
     @PutMapping("/{claimId}")
     public Claim  updateCLaim(@PathVariable("claimId") Integer claimId,

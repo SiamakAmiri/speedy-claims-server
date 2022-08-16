@@ -9,6 +9,7 @@ import java.util.Map;
 public interface ClaimService {
 
     List<Claim> getAllClaim();
+    int countClaims();
     Claim addClaim(ClaimDTO newClaim);
     Claim getClaimById(Integer claimId);
     Claim getClaimByPolicyNumber(Integer policyNumber);

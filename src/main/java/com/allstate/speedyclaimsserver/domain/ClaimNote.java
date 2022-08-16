@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name ="claimnote")
@@ -66,5 +67,28 @@ public class ClaimNote {
 
     public void setCreatedClaim(Claim createdClaim) {
         this.createdClaim = createdClaim;
+    }
+
+    @Override
+    public String toString() {
+        return "ClaimNote{" +
+                "claimNoteId=" + claimNoteId +
+                ", noteText='" + noteText + '\'' +
+                ", noteCreatedDateTime=" + noteCreatedDateTime +
+                ", createdClaim=" + createdClaim +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClaimNote claimNote = (ClaimNote) o;
+        return Objects.equals(claimNoteId, claimNote.claimNoteId) && Objects.equals(noteText, claimNote.noteText) && Objects.equals(noteCreatedDateTime, claimNote.noteCreatedDateTime) && Objects.equals(createdClaim, claimNote.createdClaim);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(claimNoteId, noteText, noteCreatedDateTime, createdClaim);
     }
 }

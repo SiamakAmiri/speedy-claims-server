@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface ClaimRepository extends JpaRepository<Claim, Integer> {
 
-    public Optional<Claim> findByName(String surname);
+    public Optional<Claim> findBySurname(String surname);
 }

@@ -3,6 +3,7 @@ package com.allstate.speedyclaimsserver.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name ="claimtask")
@@ -63,5 +64,28 @@ public class ClaimTask {
 
     public void setCreatedClaim(Claim createdClaim) {
         this.createdClaim = createdClaim;
+    }
+
+    @Override
+    public String toString() {
+        return "ClaimTask{" +
+                "claimTaskId=" + claimTaskId +
+                ", taskText='" + taskText + '\'' +
+                ", taskStatus='" + taskStatus + '\'' +
+                ", createdClaim=" + createdClaim +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClaimTask claimTask = (ClaimTask) o;
+        return Objects.equals(claimTaskId, claimTask.claimTaskId) && Objects.equals(taskText, claimTask.taskText) && Objects.equals(taskStatus, claimTask.taskStatus) && Objects.equals(createdClaim, claimTask.createdClaim);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(claimTaskId, taskText, taskStatus, createdClaim);
     }
 }
