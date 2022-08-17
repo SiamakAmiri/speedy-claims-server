@@ -60,6 +60,8 @@ public class ClaimServiceImpl implements ClaimService{
 
     @Override
     public Claim getClaimByPolicyNumber(Integer policyNumber) {
+
+        System.out.println("Inside getClaimByPolicyNumber");
         Optional<Claim> optionalClaim =  claimRepository.findById(policyNumber);
 
         if (optionalClaim.isPresent()) {

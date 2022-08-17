@@ -58,6 +58,14 @@ public class ClaimDTO {
         return new Claim (null, policyNumber, firstName, surname, insuranceType, propertyAddress, make, model, year, animalType, animalBreed, LocalDate.now(), incidentAmount, claimReason, incidentDescription, claimStatus, new ArrayList<>(), new ArrayList<>());
     }
 
+    public Integer getClaimId() {
+        return claimId;
+    }
+
+    public void setClaimId(Integer claimId) {
+        this.claimId = claimId;
+    }
+
     public Integer getPolicyNumber() {
         return policyNumber;
     }

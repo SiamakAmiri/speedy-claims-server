@@ -21,7 +21,6 @@ public class ClaimController {
     private ClaimService claimService;
 
 
-    @GetMapping()
     public List<ClaimDTO> getAllClaim() {
         System.out.println("Inside ClaimController.getAllClaim");
         return claimService.getAllClaim().stream()
@@ -47,14 +46,27 @@ public class ClaimController {
     }
 
 
-    @PostMapping
+
+
+/*
+    @GetMapping(value ="/{surname}", produces={MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    public Claim getBySurname(@PathVariable("surname") String surname) {
+        return claimService.getClaimBySurname(surname);
+    }*/
+
+
+
+
+
+   @PostMapping
     public Claim newClaim(@RequestBody ClaimDTO claimDTO) {
         return claimService.addClaim(claimDTO);
     }
 
 
-   /* @GetMapping()
-    public Claim getTheClaim(@RequestParam(value="claimId", required=false) Integer claimId,
+
+    @GetMapping()
+    public Object getTheClaim(@RequestParam(value="claimId", required=false) Integer claimId,
                         @RequestParam(value="policyNumber", required=false) Integer policyNumber,
                         @RequestParam(value="surname", required=false) String surname) {
         if (claimId != null) {
@@ -67,10 +79,9 @@ public class ClaimController {
             return claimService.getClaimBySurname(surname);
         }
 
-        return claimService.getClaimById(claimId);
+        return getAllClaim(); // claimService.getAllClaim();
 
     }
-*/
 
     @PutMapping("/{claimId}")
     public Claim  updateCLaim(@PathVariable("claimId") Integer claimId,
