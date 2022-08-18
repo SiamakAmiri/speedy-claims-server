@@ -20,7 +20,6 @@ public class ClaimController {
     @Autowired
     private ClaimService claimService;
 
-
     public List<ClaimDTO> getAllClaim() {
         System.out.println("Inside ClaimController.getAllClaim");
         return claimService.getAllClaim().stream()
@@ -73,6 +72,7 @@ public class ClaimController {
             return claimService.getClaimById(claimId);
         }
         else if (policyNumber != null) {
+            System.out.println("Inside ClaimController.policyNumber");
             return claimService.getClaimByPolicyNumber(policyNumber);
         }
         else if (surname != null) {
@@ -88,6 +88,14 @@ public class ClaimController {
                                                    @RequestBody Map<String, String> data) {
 
         return claimService.updateClaim(claimId, data);
+    }
+
+
+    @DeleteMapping("/{claimId}")
+    public Claim  deleteCLaim(@PathVariable("claimId") Integer claimId,
+                              @RequestBody Map<String, String> data) {
+
+        return claimService.deleteClaimById(claimId);
     }
 
 

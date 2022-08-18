@@ -62,7 +62,7 @@ public class ClaimServiceImpl implements ClaimService{
     public Claim getClaimByPolicyNumber(Integer policyNumber) {
 
         System.out.println("Inside getClaimByPolicyNumber");
-        Optional<Claim> optionalClaim =  claimRepository.findById(policyNumber);
+        Optional<Claim> optionalClaim =  claimRepository.findByPolicyNumber(policyNumber);
 
         if (optionalClaim.isPresent()) {
             return optionalClaim.get();
@@ -84,6 +84,13 @@ public class ClaimServiceImpl implements ClaimService{
         throw new ClaimNotFoundException("There is no claim with a surname of " + surname);
     }
 
+    @Override
+    public Claim deleteClaimById(Integer claimId) {
+        System.out.println("Inside deleteClaimById");
+        claimRepository.deleteById(claimId);
+
+        return null;
+    }
 
     @Override
     public Claim updateClaim(Integer claimId, Map<String, String> data) {
@@ -105,6 +112,7 @@ public class ClaimServiceImpl implements ClaimService{
 
         return claimRepository.save(claim);
     }
+
 
 
 

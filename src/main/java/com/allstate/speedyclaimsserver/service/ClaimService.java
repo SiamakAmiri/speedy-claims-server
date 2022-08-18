@@ -15,6 +15,6 @@ public interface ClaimService {
     Claim getClaimByPolicyNumber(Integer policyNumber);
     Claim getClaimBySurname(String surname);
     Claim updateClaim(Integer id, Map<String,String> data);
-
+    Claim deleteClaimById(Integer claimId);
 
 }

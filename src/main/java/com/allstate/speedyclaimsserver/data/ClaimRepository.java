@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface ClaimRepository extends JpaRepository<Claim, Integer> {
 
     public Optional<Claim> findBySurname(String surname);
+    public Optional<Claim> findByPolicyNumber(Integer policyNmber);
+
 }
