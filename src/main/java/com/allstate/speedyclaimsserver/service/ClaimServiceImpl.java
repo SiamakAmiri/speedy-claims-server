@@ -4,6 +4,7 @@ import com.allstate.speedyclaimsserver.data.ClaimRepository;
 import com.allstate.speedyclaimsserver.domain.Claim;
 import com.allstate.speedyclaimsserver.dtos.ClaimDTO;
 import com.allstate.speedyclaimsserver.exceptions.ClaimNotFoundException;
+import com.allstate.speedyclaimsserver.exceptions.InvalidNewClaimException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +36,28 @@ public class ClaimServiceImpl implements ClaimService{
         return claimRepository.findAll().size();
     }
 
-    @Override
+  /*  @Override
     public Claim addClaim(ClaimDTO newClaim) {
 
         return claimRepository.save(newClaim.toClaim());
     }
+*/
 
 
+    @Override
+    public Claim addClaim(ClaimDTO claimDTO) {
+        Claim claim = claimDTO.toClaim();
+
+        if(claim.getPolicyNumber() == null || claim.getSurname() ==null) {
+            throw new InvalidNewClaimException("Policy number and Surname must be provided");
+        }
+        try {
+            return claimRepository.save(claim);
+        }
+        catch (Exception e) {
+            throw new InvalidNewClaimException("We were unable to save your claim");
+        }
+    }
 
 
     @Override
