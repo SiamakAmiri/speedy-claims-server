@@ -29,6 +29,8 @@ public class ClaimDTO {
     private String claimReason;
     private String incidentDescription;
     private String claimStatus;
+    private List<ClaimNote> lcn;
+    private List<ClaimTask> lct;
 
 
     public ClaimDTO() {
@@ -51,6 +53,9 @@ public class ClaimDTO {
         this.claimReason = claim.getClaimReason();
         this.incidentDescription = claim.getIncidentDescription();
         this.claimStatus = claim.getClaimStatus();
+        this.lcn = claim.getClaimNoteList();
+        this.lct = claim.getClaimTaskList();
+
     }
 
     public Claim toClaim(){
@@ -184,5 +189,21 @@ public class ClaimDTO {
 
     public void setClaimStatus(String claimStatus) {
         this.claimStatus = claimStatus;
+    }
+
+    public List<ClaimNote> getLcn() {
+        return lcn;
+    }
+
+    public void setLcn(List<ClaimNote> lcn) {
+        this.lcn = lcn;
+    }
+
+    public List<ClaimTask> getLct() {
+        return lct;
+    }
+
+    public void setLct(List<ClaimTask> lct) {
+        this.lct = lct;
     }
 }
