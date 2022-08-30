@@ -34,8 +34,8 @@ public class BootstrapService {
         if(claimRepository.findAll().size() == 0) {
 
 
-            Claim claim1 = new Claim(null, 3281, "Simon", "Smith", "motor", "", "Nissan", "Juke", 2018, "", "", LocalDate.now(), 400.00, "backed into lamp post", "claimed that the lamp post wasn't there the last time they looked", "new", null, null );
-            Claim claim2 = new Claim(null, 4406, "Jane", "Jones", "pet", "", "", "", 0000, "dog", "Border collie", LocalDate.now(), 260.00, "cut on front left paw", "", "paid", null, null );
+            Claim claim1 = new Claim(null, 3281, "Mr", "Simon", "Smith", "motor", "", "Nissan", "Juke", 2018, "", "", LocalDate.now(), 400.00, "backed into lamp post", "claimed that the lamp post wasn't there the last time they looked", "new", null, null );
+            Claim claim2 = new Claim(null, 4406, "Mrs", "Jane", "Jones", "pet", "", "", "", 0000, "dog", "Border collie", LocalDate.now(), 260.00, "cut on front left paw", "", "paid", null, null );
 
             ClaimNote claimNote1 = new ClaimNote(null, "Claim Note Text 1", LocalDate.now(), claim1);
             ClaimNote claimNote2 = new ClaimNote(null, "Claim Note Text 2", LocalDate.now(), claim2);

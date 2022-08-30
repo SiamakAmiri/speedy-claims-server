@@ -87,6 +87,7 @@ public class ClaimsTesting<UserRepository> {
         ClaimDTO newClaim = new ClaimDTO();
         //newClaim.setClaimId();
         newClaim.setPolicyNumber(1200);
+        newClaim.setTitle("Prof.");
         newClaim.setFirstName("Clive");
         newClaim.setSurname("Cole");
         newClaim.setInsuranceType("property");
@@ -97,7 +98,7 @@ public class ClaimsTesting<UserRepository> {
         newClaim.setAnimalType("");
         newClaim.setAnimalBreed("");
         newClaim.setIncidentDate(LocalDate.now());
-        newClaim.setIncidentAmount(200);
+        newClaim.setEstimatedValue(200);
         newClaim.setClaimReason("damage from flood");
         newClaim.setIncidentDescription("description of damage from flood");
         newClaim.setClaimStatus("open");

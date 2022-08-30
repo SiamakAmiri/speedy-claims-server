@@ -15,6 +15,7 @@ public class ClaimDTO {
 
     private Integer claimId;
     private Integer policyNumber;
+    private String title;
     private String firstName;
     private String surname;
     private String insuranceType;
@@ -25,7 +26,7 @@ public class ClaimDTO {
     private String animalType;
     private String animalBreed;
     private LocalDate incidentDate;
-    private double incidentAmount;
+    private double estimatedValue;
     private String claimReason;
     private String incidentDescription;
     private String claimStatus;
@@ -39,6 +40,7 @@ public class ClaimDTO {
     public ClaimDTO(Claim claim) {
         this.claimId = claim.getClaimId();
         this.policyNumber = claim.getPolicyNumber();
+        this.title = claim.getTitle();
         this.firstName = claim.getFirstName();
         this.surname = claim.getSurname();
         this.insuranceType = claim.getInsuranceType();
@@ -49,7 +51,7 @@ public class ClaimDTO {
         this.animalType = claim.getAnimalType();
         this.animalBreed = claim.getAnimalBreed();
         this.incidentDate = claim.getIncidentDate();
-        this.incidentAmount = claim.getIncidentAmount();
+        this.estimatedValue = claim.getEstimatedValue();
         this.claimReason = claim.getClaimReason();
         this.incidentDescription = claim.getIncidentDescription();
         this.claimStatus = claim.getClaimStatus();
@@ -60,7 +62,7 @@ public class ClaimDTO {
 
     public Claim toClaim(){
 
-        return new Claim (null, policyNumber, firstName, surname, insuranceType, propertyAddress, make, model, year, animalType, animalBreed, LocalDate.now(), incidentAmount, claimReason, incidentDescription, claimStatus, new ArrayList<>(), new ArrayList<>());
+        return new Claim (null, policyNumber, title, firstName, surname, insuranceType, propertyAddress, make, model, year, animalType, animalBreed, LocalDate.now(), estimatedValue, claimReason, incidentDescription, claimStatus, new ArrayList<>(), new ArrayList<>());
     }
 
     public Integer getClaimId() {
@@ -77,6 +79,14 @@ public class ClaimDTO {
 
     public void setPolicyNumber(Integer policyNumber) {
         this.policyNumber = policyNumber;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getFirstName() {
@@ -159,12 +169,12 @@ public class ClaimDTO {
         this.incidentDate = incidentDate;
     }
 
-    public double getIncidentAmount() {
-        return incidentAmount;
+    public double getEstimatedValue() {
+        return estimatedValue;
     }
 
-    public void setIncidentAmount(double incidentAmount) {
-        this.incidentAmount = incidentAmount;
+    public void setEstimatedValue(double estimatedValue) {
+        this.estimatedValue = estimatedValue;
     }
 
     public String getClaimReason() {

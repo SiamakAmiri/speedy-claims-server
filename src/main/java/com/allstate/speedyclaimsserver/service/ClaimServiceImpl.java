@@ -111,6 +111,7 @@ public class ClaimServiceImpl implements ClaimService{
     @Override
     public Claim updateClaim(Integer claimId, Map<String, String> data) {
         Claim claim = getClaimById(claimId);
+        if (data.containsKey("title")) claim.setTitle(data.get("title"));
         if (data.containsKey("firstName")) claim.setFirstName(data.get("firstName"));
         if (data.containsKey("surname")) claim.setSurname(data.get("surname"));
         if (data.containsKey("insuranceType")) claim.setInsuranceType(data.get("insuranceType"));
@@ -121,7 +122,7 @@ public class ClaimServiceImpl implements ClaimService{
         if (data.containsKey("animalType")) claim.setAnimalType(data.get("animalType"));
         if (data.containsKey("animalBreed")) claim.setAnimalBreed(data.get("animalBreed"));
         if (data.containsKey("incidentDate")) claim.setIncidentDate(LocalDate.parse(data.get("incidentDate")));
-        if (data.containsKey("incidentAmount")) claim.setIncidentAmount(Double.parseDouble(data.get("incidentAmount")));
+        if (data.containsKey("estimatedValue")) claim.setEstimatedValue(Double.parseDouble(data.get("estimatedValue")));
         if (data.containsKey("claimReason")) claim.setClaimReason(data.get("claimReason"));
         if (data.containsKey("incidentDescription")) claim.setIncidentDescription(data.get("incidentDescription"));
         if (data.containsKey("claimStatus")) claim.setClaimStatus(data.get("claimStatus"));
