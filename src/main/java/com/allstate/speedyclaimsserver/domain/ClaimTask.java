@@ -1,5 +1,6 @@
 package com.allstate.speedyclaimsserver.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -23,6 +24,7 @@ public class ClaimTask {
     @ManyToOne
     Claim createdClaim;
 
+    @JsonCreator
     public ClaimTask() {
     }
 
