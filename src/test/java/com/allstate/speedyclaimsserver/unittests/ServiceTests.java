@@ -48,9 +48,9 @@ public class ServiceTests {
 
         List<Claim> claims = new ArrayList<>();
 
-        claims.add(new Claim(null, 3281, "Mr", "Simon", "Smith", "motor", "", "Nissan", "Juke", 2018, "", "", LocalDate.now(), 400.00, "backed into lamp post", "claimed that the lamp post wasn't there the last time they looked", "new", null, null));
-        claims.add(new Claim(null, 4406, "Mrs", "Jane", "Jones", "pet", "", "", "", 0000, "dog", "Border collie", LocalDate.now(), 260.00, "cut on front left paw", "", "paid", null, null));
-        claims.add(new Claim(null, 9191, "Dr", "Geraldine", "Green", "motor", "", "Citroen", "Berlingo", 2021, "", "", LocalDate.now(), 400.00, "skidded on ice", "Had been snowing all morning", "new", null, null));
+        claims.add(new Claim(null, 3281, "Mr", "Simon", "Smith", "motor", "", "Nissan", "Juke", 2018, "", "", LocalDate.now(), 400.00, "backed into lamp post", "claimed that the lamp post wasn't there the last time they looked", "new"));
+        claims.add(new Claim(null, 4406, "Mrs", "Jane", "Jones", "pet", "", "", "", 0000, "dog", "Border collie", LocalDate.now(), 260.00, "cut on front left paw", "", "paid"));
+        claims.add(new Claim(null, 9191, "Dr", "Geraldine", "Green", "motor", "", "Citroen", "Berlingo", 2021, "", "", LocalDate.now(), 400.00, "skidded on ice", "Had been snowing all morning", "new"));
 
 
         Mockito.when(claimRepository.findAll()).thenReturn(claims);

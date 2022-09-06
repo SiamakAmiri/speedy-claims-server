@@ -21,18 +21,18 @@ public class ClaimTask {
     @Column(name="task_status")
     String taskStatus;
 
-    @ManyToOne
-    Claim createdClaim;
+    /*@ManyToOne
+    Claim createdClaim;*/
 
     @JsonCreator
     public ClaimTask() {
     }
 
-    public ClaimTask(Integer claimTaskId, String taskText, String taskStatus, Claim createdClaim) {
+    public ClaimTask(Integer claimTaskId, String taskText, String taskStatus) {
         this.claimTaskId = claimTaskId;
         this.taskText = taskText;
         this.taskStatus = taskStatus;
-        this.createdClaim = createdClaim;
+        //this.createdClaim = createdClaim;
     }
 
     public Integer getClaimTaskId() {
@@ -59,14 +59,14 @@ public class ClaimTask {
         this.taskStatus = taskStatus;
     }
 
-    @JsonIgnore
+  /*  @JsonIgnore
     public Claim getCreatedClaim() {
         return createdClaim;
     }
 
     public void setCreatedClaim(Claim createdClaim) {
         this.createdClaim = createdClaim;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -74,7 +74,7 @@ public class ClaimTask {
                 "claimTaskId=" + claimTaskId +
                 ", taskText='" + taskText + '\'' +
                 ", taskStatus='" + taskStatus + '\'' +
-                ", createdClaim=" + createdClaim +
+
                 '}';
     }
 
@@ -83,11 +83,11 @@ public class ClaimTask {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ClaimTask claimTask = (ClaimTask) o;
-        return Objects.equals(claimTaskId, claimTask.claimTaskId) && Objects.equals(taskText, claimTask.taskText) && Objects.equals(taskStatus, claimTask.taskStatus) && Objects.equals(createdClaim, claimTask.createdClaim);
+        return Objects.equals(claimTaskId, claimTask.claimTaskId) && Objects.equals(taskText, claimTask.taskText) && Objects.equals(taskStatus, claimTask.taskStatus);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(claimTaskId, taskText, taskStatus, createdClaim);
+        return Objects.hash(claimTaskId, taskText, taskStatus);
     }
 }

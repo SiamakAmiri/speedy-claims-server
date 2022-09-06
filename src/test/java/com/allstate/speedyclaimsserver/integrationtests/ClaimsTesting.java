@@ -90,20 +90,20 @@ public class ClaimsTesting<UserRepository> {
         newClaim.setTitle("Prof.");
         newClaim.setFirstName("Clive");
         newClaim.setSurname("Cole");
-        newClaim.setInsuranceType("property");
+        newClaim.setType("property");
         newClaim.setPropertyAddress("15 Acacia Avenue, Sometown");
         newClaim.setMake("");
         newClaim.setModel("");
         newClaim.setYear(9999);
         newClaim.setAnimalType("");
         newClaim.setAnimalBreed("");
-        newClaim.setIncidentDate(LocalDate.now());
+        newClaim.setClaimOpenDate(LocalDate.now());
         newClaim.setEstimatedValue(200);
         newClaim.setClaimReason("damage from flood");
         newClaim.setIncidentDescription("description of damage from flood");
         newClaim.setClaimStatus("open");
-        newClaim.setLcn(null);
-        newClaim.setLct(null);
+        //newClaim.setLcn(null);
+        //newClaim.setLct(null);
 
 
 

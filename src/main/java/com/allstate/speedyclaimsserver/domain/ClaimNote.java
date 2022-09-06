@@ -23,18 +23,18 @@ public class ClaimNote {
     @Column(name="note_created_date_time")
     private LocalDate noteCreatedDateTime;
 
-    @ManyToOne
-    private Claim createdClaim;
+   /* @ManyToOne
+    private Claim createdClaim;*/
 
     @JsonCreator
     public ClaimNote() {
     }
 
-    public ClaimNote(Integer claimNoteId, String noteText, LocalDate noteCreatedDateTime, Claim createdClaim) {
+    public ClaimNote(Integer claimNoteId, String noteText, LocalDate noteCreatedDateTime) {
         this.claimNoteId = claimNoteId;
         this.noteText = noteText;
         this.noteCreatedDateTime = noteCreatedDateTime;
-        this.createdClaim = createdClaim;
+       // this.createdClaim = createdClaim;
     }
 
 
@@ -62,14 +62,14 @@ public class ClaimNote {
         this.noteCreatedDateTime = noteCreatedDateTime;
     }
 
-    @JsonIgnore
+  /*  @JsonIgnore
     public Claim getCreatedClaim() {
         return createdClaim;
     }
 
     public void setCreatedClaim(Claim createdClaim) {
         this.createdClaim = createdClaim;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -77,7 +77,7 @@ public class ClaimNote {
                 "claimNoteId=" + claimNoteId +
                 ", noteText='" + noteText + '\'' +
                 ", noteCreatedDateTime=" + noteCreatedDateTime +
-                ", createdClaim=" + createdClaim +
+
                 '}';
     }
 
@@ -86,11 +86,11 @@ public class ClaimNote {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ClaimNote claimNote = (ClaimNote) o;
-        return Objects.equals(claimNoteId, claimNote.claimNoteId) && Objects.equals(noteText, claimNote.noteText) && Objects.equals(noteCreatedDateTime, claimNote.noteCreatedDateTime) && Objects.equals(createdClaim, claimNote.createdClaim);
+        return Objects.equals(claimNoteId, claimNote.claimNoteId) && Objects.equals(noteText, claimNote.noteText) && Objects.equals(noteCreatedDateTime, claimNote.noteCreatedDateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(claimNoteId, noteText, noteCreatedDateTime, createdClaim);
+        return Objects.hash(claimNoteId, noteText, noteCreatedDateTime);
     }
 }

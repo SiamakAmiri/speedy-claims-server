@@ -114,14 +114,14 @@ public class ClaimServiceImpl implements ClaimService{
         if (data.containsKey("title")) claim.setTitle(data.get("title"));
         if (data.containsKey("firstName")) claim.setFirstName(data.get("firstName"));
         if (data.containsKey("surname")) claim.setSurname(data.get("surname"));
-        if (data.containsKey("insuranceType")) claim.setInsuranceType(data.get("insuranceType"));
+        if (data.containsKey("type")) claim.setType(data.get("type"));
         if (data.containsKey("propertyAddress")) claim.setPropertyAddress(data.get("propertyAddress"));
         if (data.containsKey("make")) claim.setMake(data.get("make"));
         if (data.containsKey("model")) claim.setModel(data.get("model"));
         if (data.containsKey("year")) claim.setYear(Integer.parseInt(data.get("year")));
         if (data.containsKey("animalType")) claim.setAnimalType(data.get("animalType"));
         if (data.containsKey("animalBreed")) claim.setAnimalBreed(data.get("animalBreed"));
-        if (data.containsKey("incidentDate")) claim.setIncidentDate(LocalDate.parse(data.get("incidentDate")));
+        if (data.containsKey("incidentDate")) claim.setClaimOpenDate(LocalDate.parse(data.get("incidentDate")));
         if (data.containsKey("estimatedValue")) claim.setEstimatedValue(Double.parseDouble(data.get("estimatedValue")));
         if (data.containsKey("claimReason")) claim.setClaimReason(data.get("claimReason"));
         if (data.containsKey("incidentDescription")) claim.setIncidentDescription(data.get("incidentDescription"));

@@ -18,20 +18,20 @@ public class ClaimDTO {
     private String title;
     private String firstName;
     private String surname;
-    private String insuranceType;
+    private String type;
     private String propertyAddress;
     private String make;
     private String model;
     private Integer year;
     private String animalType;
     private String animalBreed;
-    private LocalDate incidentDate;
+    private LocalDate claimOpenDate;
     private double estimatedValue;
     private String claimReason;
     private String incidentDescription;
     private String claimStatus;
-    private List<ClaimNote> lcn;
-    private List<ClaimTask> lct;
+    //private List<ClaimNote> lcn;
+    //private List<ClaimTask> lct;
 
 
     public ClaimDTO() {
@@ -43,26 +43,26 @@ public class ClaimDTO {
         this.title = claim.getTitle();
         this.firstName = claim.getFirstName();
         this.surname = claim.getSurname();
-        this.insuranceType = claim.getInsuranceType();
+        this.type = claim.getType();
         this.propertyAddress = claim.getPropertyAddress();
         this.make = claim.getMake();
         this.model = claim.getModel();
         this.year = claim.getYear();
         this.animalType = claim.getAnimalType();
         this.animalBreed = claim.getAnimalBreed();
-        this.incidentDate = claim.getIncidentDate();
+        this.claimOpenDate = claim.getClaimOpenDate();
         this.estimatedValue = claim.getEstimatedValue();
         this.claimReason = claim.getClaimReason();
         this.incidentDescription = claim.getIncidentDescription();
         this.claimStatus = claim.getClaimStatus();
-        this.lcn = claim.getClaimNoteList();
-        this.lct = claim.getClaimTaskList();
+       // this.lcn = claim.getClaimNoteList();
+        //this.lct = claim.getClaimTaskList();
 
     }
 
     public Claim toClaim(){
 
-        return new Claim (null, policyNumber, title, firstName, surname, insuranceType, propertyAddress, make, model, year, animalType, animalBreed, LocalDate.now(), estimatedValue, claimReason, incidentDescription, claimStatus, new ArrayList<>(), new ArrayList<>());
+        return new Claim (null, policyNumber, title, firstName, surname, type, propertyAddress, make, model, year, animalType, animalBreed, LocalDate.now(), estimatedValue, claimReason, incidentDescription, claimStatus);
     }
 
     public Integer getClaimId() {
@@ -105,12 +105,12 @@ public class ClaimDTO {
         this.surname = surname;
     }
 
-    public String getInsuranceType() {
-        return insuranceType;
+    public String getType() {
+        return type;
     }
 
-    public void setInsuranceType(String insuranceType) {
-        this.insuranceType = insuranceType;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getPropertyAddress() {
@@ -161,12 +161,12 @@ public class ClaimDTO {
         this.animalBreed = animalBreed;
     }
 
-    public LocalDate getIncidentDate() {
-        return incidentDate;
+    public LocalDate getClaimOpenDate() {
+        return claimOpenDate;
     }
 
-    public void setIncidentDate(LocalDate incidentDate) {
-        this.incidentDate = incidentDate;
+    public void setClaimOpenDate(LocalDate incidentDate) {
+        this.claimOpenDate = claimOpenDate;
     }
 
     public double getEstimatedValue() {
@@ -201,7 +201,7 @@ public class ClaimDTO {
         this.claimStatus = claimStatus;
     }
 
-    public List<ClaimNote> getLcn() {
+    /*public List<ClaimNote> getLcn() {
         return lcn;
     }
 
@@ -215,5 +215,5 @@ public class ClaimDTO {
 
     public void setLct(List<ClaimTask> lct) {
         this.lct = lct;
-    }
+    }*/
 }
