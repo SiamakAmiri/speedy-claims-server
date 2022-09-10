@@ -129,7 +129,7 @@ public class BootstrapService {
             claimRepository.save(claim6);
 
             // ===============================================================
-            Claim claim7 = new Claim(null, 4407, "Mrs", "Janee", "Joness", "pet", "", "", "", 0000, "dog", "Border collie", LocalDate.of(2022, 05, 20), 240.00, "cut on front left paw", "claimed that the lamp post wasn't there the last time they looked", "paid");
+            Claim claim7 = new Claim(null, 4407, "Mrs", "Lisa", "King", "pet", "", "", "", 0000, "dog", "Border collie", LocalDate.of(2022, 05, 20), 240.00, "cut on front left paw", "claimed that the lamp post wasn't there the last time they looked", "paid");
             //ClaimNote claimNote3 = new ClaimNote(null, "Motor: Claim Note Text 3", LocalDate.now(), claim3);
             //ClaimTask claimTask3 = new ClaimTask(null, "Motor: Claim Task Text 3", "Closed", claim3);
 
@@ -144,7 +144,7 @@ public class BootstrapService {
             claimRepository.save(claim7);
 
             // ===============================================================
-            Claim claim8 = new Claim(null, 9192, "Dr", "Geraldinee", "Greenn", "motor", "", "Citroen", "Berlingo", 2021, "", "", LocalDate.of(2022, 05, 20), 380.00, "skidded on ice", "Had been snowing all morning", "rejected");
+            Claim claim8 = new Claim(null, 9192, "Dr", "Emma", "Hamilton", "motor", "", "Citroen", "Berlingo", 2021, "", "", LocalDate.of(2022, 05, 20), 380.00, "skidded on ice", "Had been snowing all morning", "rejected");
             //ClaimNote claimNote3 = new ClaimNote(null, "Motor: Claim Note Text 3", LocalDate.now(), claim3);
             //ClaimTask claimTask3 = new ClaimTask(null, "Motor: Claim Task Text 3", "Closed", claim3);
 
@@ -160,7 +160,7 @@ public class BootstrapService {
 
             // ===============================================================
 
-            Claim claim9 = new Claim(null, 1201, "Prof.", "Clivee", "Colee", "property", "15 Acacia Avenue, Sometown", "", "", 0000, "", "", LocalDate.of(2022, 05, 21), 200.00, "damage from flood", "Had been snowing all morning", "open");
+            Claim claim9 = new Claim(null, 1201, "Prof.", "Peter", "Brown", "property", "15 Acacia Avenue, Sometown", "", "", 0000, "", "", LocalDate.of(2022, 05, 21), 200.00, "damage from flood", "Had been snowing all morning", "open");
             //ClaimNote claimNote3 = new ClaimNote(null, "Motor: Claim Note Text 3", LocalDate.now(), claim3);
             //ClaimTask claimTask3 = new ClaimTask(null, "Motor: Claim Task Text 3", "Closed", claim3);
 
@@ -176,7 +176,7 @@ public class BootstrapService {
 
             // ===============================================================
 
-            Claim claim10 = new Claim(null, 1656, "Miss", "Wandaa", "Webb", "property", "27 Summer View, Differentown", "", "", 0000, "", "", LocalDate.of(2022, 05, 21), 300.00, "window broken by neighbour's child playing football", "Had been snowing all morning", "rejected");
+            Claim claim10 = new Claim(null, 1656, "Miss", "Wanda", "Web", "property", "27 Summer View, Differentown", "", "", 0000, "", "", LocalDate.of(2022, 05, 21), 300.00, "window broken by neighbour's child playing football", "Had been snowing all morning", "rejected");
             //ClaimNote claimNote3 = new ClaimNote(null, "Motor: Claim Note Text 3", LocalDate.now(), claim3);
             //ClaimTask claimTask3 = new ClaimTask(null, "Motor: Claim Task Text 3", "Closed", claim3);
 
@@ -207,7 +207,7 @@ public class BootstrapService {
 
             // ===============================================================
 
-            Claim claim12 = new Claim(null, 4408, "Mr", "Jane", "Jones", "pet", "", "", "", 0000, "dog", "Border collie", LocalDate.of(2022, 05, 20), 240.00, "cut on front left paw", "Had been snowing all morning", "paid");
+            Claim claim12 = new Claim(null, 4408, "Mr", "Jayne", "Workman", "pet", "", "", "", 0000, "dog", "Border collie", LocalDate.of(2022, 05, 20), 240.00, "cut on front left paw", "Had been snowing all morning", "paid");
             //ClaimNote claimNote3 = new ClaimNote(null, "Motor: Claim Note Text 3", LocalDate.now(), claim3);
             //ClaimTask claimTask3 = new ClaimTask(null, "Motor: Claim Task Text 3", "Closed", claim3);
 
